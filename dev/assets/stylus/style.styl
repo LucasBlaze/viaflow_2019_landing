@@ -17,6 +17,7 @@ span
 	font-size 14px
 	line-height 1.5
 	color #6d6e71
+	margin 0 0 1.5em
 	+above(1024px)
 		line-height 1.7
 		font-size 16px
@@ -62,7 +63,7 @@ h1, h2, h3
 			column(1/2)
 		&:nth-child(1)
 			+above(1024px)
-				padding-right 3em
+				padding 0 3em
 		&:nth-child(2)
 			+above(1024px)
 				padding 0 4em
@@ -92,8 +93,24 @@ h1, h2, h3
 			text-align left
 			margin 0
 			column(1/2)
+		&:nth-child(1)
+			+above(1024px)
+				padding 0 3em
+		&:nth-child(2)
+				+above(1024px)
+					padding 7em 4em 0
+	&__row
+		&:last-child
+			.s-landing-forms__col
+				&:nth-child(2)
+					+above(1024px)
+						padding 9.5em 4em 0
 	&__form
 		margin 2em 0
+	&__ttl
+		+above(1024px)
+			max-width 200px
+			
 	span 
 		b 
 			font-family 'Montserrat-bold', sans-serif
@@ -109,10 +126,14 @@ form
 			border 0
 			width 100%
 			border-radius 20px
-			padding 10px 15px
-			margin 7px 0
+			padding 11px 15px
+			margin 10px 0
 			font-family 'Montserrat-bold', sans-serif
 			font-size 13px
+			&.error 
+				border 1px solid red
+				&::placeholder
+					color red
 		&[type="submit"]
 			background-color #000f39
 			color #fff
@@ -123,15 +144,26 @@ form
 			font-size 14px
 			letter-spacing 1.2px
 			font-family 'Montserrat-light', sans-serif
+			+above(1024px)
+				padding 9px 20px
 		&::placeholder
 			font-family 'Montserrat-bold', sans-serif
 			font-size 13px
+	span 
+		&.msg
+			display block;
+			&.error 
+				color red
+			&.success 
+				color green
+			
 			
 .c-wave-separator
 	display block
 	margin 0 auto
 	max-width 390px
 	width 100%
+	margin 2em auto
 	+above(1024px)
 		margin 5em auto
 
