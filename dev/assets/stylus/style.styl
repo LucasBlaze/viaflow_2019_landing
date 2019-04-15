@@ -50,6 +50,35 @@ h1, h2, h3
 	background-size cover
 	+above(1024px)
 		height 650px
+	&__like
+		position absolute
+		left 50%
+		top 50%
+		transform translate(-50%, -50%)
+		max-width 100px
+		+above(1024px)
+			max-width 300px
+	&--ty 
+		background url(../img/ty_banner.jpg) center no-repeat
+		background-size cover
+		position relative
+		height 50vh
+		max-height 650px
+		margin-bottom -1px	
+		&:after
+			content ''
+			background url(../img/blue-wave.png) center no-repeat
+			background-size contain
+			width 100%;
+			max-width 280px
+			height 50px
+			position absolute
+			bottom -25px
+			left 50%
+			transform translateX(-50%)
+			+above(1024px)
+				max-width 460px
+			
 .s-landing-text
 	background-color #000f39
 	padding 2em 0
@@ -114,8 +143,35 @@ h1, h2, h3
 	span 
 		b 
 			font-family 'Montserrat-bold', sans-serif
-		
-	
+			
+
+.s-landing-ty
+	background-color #000f39
+	padding 120px 0
+	min-height 50vh
+	+above(1024px)
+		padding 160px 0
+	&__ttl
+		font-family 'Montserrat-bold',sans-serif
+		color #fff
+		font-size 40px
+		text-align center
+		+above(1024px)
+			font-size 90px
+	&__sbttl,
+	a
+		font-size 16px
+		font-family 'Montserrat-light',sans-serif
+		text-align center
+		color #009ef4
+		opacity .9
+		line-height 1.2
+		+above(1024px)
+			font-size 32px
+			max-width 800px
+			margin 0 auto
+		a
+			text-decoration none
 form 
 	input
 		&[type="text"]

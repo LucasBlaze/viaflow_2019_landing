@@ -52,9 +52,16 @@ $(function(){
 							form.action,
 							$(form).serializeArray(),
 							function(data) {
-								if(data.success) {
-									$(form.target).find('.msg').removeClass('error').addClass('success').html('Contato enviado com sucesso');
-									$(form.target).reset();
+								obj = JSON.parse(data);
+								if(obj.success) {
+									var pixelLinkedIn = '<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=988876&conversionId=886113&fmt=gif" />';
+									$(form).find('.msg').removeClass('error').addClass('success').html('Contato enviado com sucesso').append(pixelLinkedIn);
+									window.fbq("trackCustom", "CadastroEmpresa");
+									$(form)[0].reset();
+									setTimeout(function(){
+										window.location.href = 'http://viaflow.com.br/flowtalents/empresas/obrigado/';
+									}, 1000);
+									
 								}
 							}
 							);
@@ -112,9 +119,16 @@ $(function(){
 							form.action,
 							$(form).serializeArray(),
 							function(data) {
-								if(data.success) {
-									$(form.target).find('.msg').removeClass('error').addClass('success').html('Contato enviado com sucesso');
-									$(form.target).reset();
+								obj = JSON.parse(data);
+								if(obj.success) {
+									$(form).find('.msg').removeClass('error').addClass('success').html('Contato enviado com sucesso');
+									var pixelLinkedIn = '<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=988876&conversionId=870858&fmt=gif" />';
+									$(form).find('.msg').removeClass('error').addClass('success').html('Contato enviado com sucesso').append(pixelLinkedIn);
+									window.fbq("trackCustom", "CadastroEstudante");
+									$(form)[0].reset();
+									setTimeout(function(){
+										window.location.href = 'http://viaflow.com.br/flowtalents/estudantes/obrigado/';
+									},1000);
 								}
 							}
 							);
