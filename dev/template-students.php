@@ -31,7 +31,8 @@ Template Name: Students
 							Então o FlowTalents é perfeito para você.
 						</b>
 					</span>
-					<form action="/wp/wp-content/themes/viaflow/landing/mail.php" method="POST" class="s-landing-forms__form s-landing-forms__form--02">
+					<a href="http://www2.viaflow.com.br/curriculo" class="o-btn">Envie seu currículo aqui</a>
+					<!-- <form action="javascript:;" method="POST" class="s-landing-forms__form s-landing-forms__form--02">
 						<input type="text" name="name" id="name" placeholder="Nome">
 						<input type="email" name="email" id="email" placeholder="E-mail">
 						<input type="text" name="college" id="college" placeholder="Universidade">
@@ -39,7 +40,7 @@ Template Name: Students
 						<input type="text" class="form-phone" name="phone" id="phone" placeholder="Telefone">
 						<input type="submit" value="Enviar">
 						<span class="msg"></span>
-					</form>
+					</form> -->
 				</div>
 			</div>
 		</div>

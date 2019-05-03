@@ -11,6 +11,10 @@ font-face("Montserrat-light", "../fonts/Montserrat/Montserrat-Light", 100 200 30
 html,
 body 
 	font-family "Montserrat-light", sans-serif
+ul 
+	list-style none
+	padding 0
+	margin 0
 p,
 span
 	font-weight 100
@@ -21,6 +25,9 @@ span
 	+above(1024px)
 		line-height 1.7
 		font-size 16px
+	.page-zillion &
+		line-height 1.44
+		
 p 
 	&:first-child
 		margin-top 0
@@ -42,6 +49,9 @@ h1, h2, h3
 	max-width 1024px
 	margin 0 auto
 	padding 0 15px
+	&--960
+		max-width 960px
+		
 
 .s-landing-banner
 	width 100%
@@ -78,12 +88,25 @@ h1, h2, h3
 			transform translateX(-50%)
 			+above(1024px)
 				max-width 460px
-			
+		
+
+.s-zillion-header
+	background url(../img/zillion/header_zillion.jpg) center no-repeat
+	width 100vw
+	height calc('(100vw/2) + 50px')
+	background-size cover
+	+above(940px)
+		height calc('(100vw/2) + 100px')
+
+
 .s-landing-text
 	background-color #000f39
 	padding 2em 0
 	clearfix()
 	+above(1024px)
+	
+
+
 		padding 5em 0
 	&__col
 		text-align center
@@ -128,6 +151,8 @@ h1, h2, h3
 		&:nth-child(2)
 				+above(1024px)
 					padding 7em 4em 0
+		> span 
+			display block
 	&__row
 		&:last-child
 			.s-landing-forms__col
@@ -212,7 +237,20 @@ form
 				color red
 			&.success 
 				color green
-			
+a
+	&.o-btn
+		background-color #000f39
+		color #fff
+		border 0
+		outline none
+		border-radius 20px
+		font-size 14px
+		letter-spacing 1.2px
+		font-family 'Montserrat-light', sans-serif
+		text-decoration none
+		padding 14px 30px
+		margin 10px 0
+		display inline-block		
 			
 .c-wave-separator
 	display block
@@ -223,6 +261,85 @@ form
 	+above(1024px)
 		margin 5em auto
 
+.c-list-highlights 
+	display flex 
+	justify-content space-between
+	flex-direction column
+	align-items center
+	+above(960px)
+		flex-direction row
+		align-items flex-start
+	&__item
+		flex-basis 100%
+		padding 0 20px
+		max-width 300px
+		margin 25px 0
+		+above(960px)
+			margin 0
+	&__icon
+		width 72px
+		height 72px
+	.o-ttl 
+		margin 15px 0 0
+
+.c-highlight-text
+	position relative
+	text-align center
+	+above(960px)
+		text-align left
+		&:before 
+			content ''
+			background-image url(../img/zillion/bg_zillion_01.png)
+			background-repeat no-repeat
+			background-position center
+			background-size contain
+			position absolute
+			left -115%
+			top -170px
+			width 675px
+			height 410px
+	&__logo 
+		margin 0 auto 25px
+		display block
+		+above(960px)
+			margin 0 0 25px
+		
+		
+	
 
 
+.o-ttl 
+	font-family 'Montserrat-bold',sans-serif
+	font-size 40px
+	+above(1024px)
+		font-size 90px
+	&--22
+		font-size 22px
+	&--purple
+		color #0229b3
+	
 
+.u-text-align
+	&--center
+		text-align center
+	&--left
+		text-align left
+	&--right
+		text-align right
+
+
+$sides = top, bottom, left, right
+for $i in (0..80)
+	for $side in $sides 
+		.u-m-{slice($side, 0, 1)}-{$i*5}
+			margin-{$side} $i*5px!important
+		.u-p-{slice($side, 0, 1)}-{$i*5}
+			padding-{$side} $i*5px!important
+			
++below(960px)
+	for $i in (0..40)
+		for $side in $sides 
+			.u-m-{slice($side, 0, 1)}-{$i*5}--sm
+				margin-{$side} $i*5px!important
+			.u-p-{slice($side, 0, 1)}-{$i*5}--sm
+				padding-{$side} $i*5px!important
