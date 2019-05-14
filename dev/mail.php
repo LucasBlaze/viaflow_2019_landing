@@ -4,11 +4,14 @@
   //====================================================
 
 
-if(isset($_POST['company'])){
+if( $_POST['landing'] == 'empresarial' ){
   $email_conteudo = "Contato Empresarial \n \n"; 
 }
-else{
+elseif( $_POST['landing'] == 'estudantil' ){
   $email_conteudo = "Contato Estudantil \n \n";   
+}
+elseif( $_POST['landing'] == 'zillion' ){
+   $email_conteudo = "Contato Landing Zillion \n \n";   
 }
 
 if(isset($_POST['name'])){

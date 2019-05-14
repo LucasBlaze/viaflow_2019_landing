@@ -40,6 +40,7 @@ Template Name: Landing
 				<div class="s-landing-forms__col">
 					<span><b>Quer conhecer mais o FlowTalents?</b> <br/>Ligue 51 3012.4100 ou preencha o formulário abaixo que entraremos em contato.</span>
 					<form action="/wp/wp-content/themes/viaflow/landing/mail.php" method="POST" class="s-landing-forms__form s-landing-forms__form--01">
+						<input name="landing" type="hidden" value="empresarial">
 						<input type="text" name="name" id="name" placeholder="Nome" maxlength="50">
 						<input type="email" name="email" id="email" placeholder="E-mail" maxlength="255">
 						<input type="text" class="form-phone" name="phone" id="phone" placeholder="Telefone">
@@ -72,7 +73,8 @@ Template Name: Landing
 						</b>
 					</span>
 					<a href="http://www2.viaflow.com.br/curriculo" class="o-btn">Envie seu currículo aqui</a>
-					<!-- <form action="javascript:;" method="POST" class="s-landing-forms__form s-landing-forms__form--02">
+					<!-- <form action="/wp/wp-content/themes/viaflow/landing/mail.php" method="POST" class="s-landing-forms__form s-landing-forms__form--02">
+						<input name="landing" type="hidden" value="estudantil">
 						<input type="text" name="name" id="name" placeholder="Nome">
 						<input type="email" name="email" id="email" placeholder="E-mail">
 						<input type="text" name="college" id="college" placeholder="Universidade">

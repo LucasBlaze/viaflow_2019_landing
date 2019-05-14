@@ -7,10 +7,13 @@ normalize()
 
 font-face("Montserrat-bold", "../fonts/Montserrat/Montserrat-SemiBold", 600 700 800, formats: otf eot ttf woff woff2)
 font-face("Montserrat-light", "../fonts/Montserrat/Montserrat-Light", 100 200 300 400 500, formats: otf eot ttf woff woff2)
+font-face("Gilroy-light", "../fonts/Gilroy/Gilroy-Light", 100 200 300 400 500, formats: otf eot ttf woff woff2)
+font-face("Gilroy-ExtraBold", "../fonts/Gilroy/Gilroy-ExtraBold", 100 200 300 400 500, formats: otf eot ttf woff woff2)
 
-html,
-body 
+main 
 	font-family "Montserrat-light", sans-serif
+	&.page-zillion
+		font-family "Gilroy-light", sans-serif
 ul 
 	list-style none
 	padding 0
@@ -96,7 +99,8 @@ h1, h2, h3
 	height calc('(100vw/2) + 50px')
 	background-size cover
 	+above(940px)
-		height calc('(100vw/2) + 100px')
+		background-position center -90px
+		height calc('100vw/2')
 
 
 .s-landing-text
@@ -237,20 +241,23 @@ form
 				color red
 			&.success 
 				color green
-a
-	&.o-btn
-		background-color #000f39
-		color #fff
-		border 0
-		outline none
-		border-radius 20px
-		font-size 14px
-		letter-spacing 1.2px
-		font-family 'Montserrat-light', sans-serif
-		text-decoration none
-		padding 14px 30px
-		margin 10px 0
-		display inline-block		
+.o-btn
+form input[type="submit"].o-btn
+a.o-btn	
+	background-color #000f39
+	color #fff
+	border 0
+	outline none
+	border-radius 20px
+	font-size 14px
+	letter-spacing 1.2px
+	font-family 'Montserrat-light', sans-serif
+	text-decoration none
+	padding 12px 30px
+	margin 10px 0
+	display inline-block
+	&--purple
+		background-color #0229b3	
 			
 .c-wave-separator
 	display block
@@ -303,21 +310,39 @@ a
 		display block
 		+above(960px)
 			margin 0 0 25px
-		
-		
+
+
+.c-text-list
+	display flex
+	justify-content space-between
+	align-items center
+	flex-direction column
+	text-align center
+	+above(960px)
+		flex-direction row
+		text-align left
+		align-items flex-start
+	&__item
+		max-width 400px
+		padding 0 35px
+		margin 10px 0 				
 	
 
 
 .o-ttl 
 	font-family 'Montserrat-bold',sans-serif
 	font-size 40px
+	line-height 1.2
+	margin-bottom 10px
 	+above(1024px)
 		font-size 90px
 	&--22
 		font-size 22px
+	&--16
+		font-size 16px 
 	&--purple
 		color #0229b3
-	
+
 
 .u-text-align
 	&--center
@@ -326,7 +351,17 @@ a
 		text-align left
 	&--right
 		text-align right
+		
+.u-m-width
+	&--600
+		max-width 600px
 
+.u-block-center
+	display block
+	margin 0 auto
+
+
+	
 
 $sides = top, bottom, left, right
 for $i in (0..80)
@@ -337,9 +372,13 @@ for $i in (0..80)
 			padding-{$side} $i*5px!important
 			
 +below(960px)
-	for $i in (0..40)
+	for $i in (0..80)
 		for $side in $sides 
 			.u-m-{slice($side, 0, 1)}-{$i*5}--sm
 				margin-{$side} $i*5px!important
 			.u-p-{slice($side, 0, 1)}-{$i*5}--sm
 				padding-{$side} $i*5px!important
+
+
+
+

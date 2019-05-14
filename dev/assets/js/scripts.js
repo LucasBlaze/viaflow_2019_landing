@@ -9,6 +9,8 @@ $(function(){
 		bind : {
 			init: function(){
 
+				$('.form-phone').mask('(00) 000.00.00.00');
+				
 
 				$('.s-landing-forms__form--01').on('submit', function(e){
 					e.preventDefault();
@@ -46,6 +48,10 @@ $(function(){
 							minlength: 2,
 							maxlength: 50
 						},
+						phone: {
+							required: true,
+							minlength: 17
+						},
 					},
 					submitHandler: function(form){
 						$.post(
@@ -67,9 +73,6 @@ $(function(){
 							);
 					}
 				});
-
-
-
 
 
 
@@ -135,8 +138,61 @@ $(function(){
 					}
 				});
 
+				
+				$('.s-landing-forms__form--03').on('submit', function(e){
+					e.preventDefault();
+				}).validate({
+					errorPlacement: function(error, element) {
+					},
+					invalidHandler: function(form, validator){
+						$(form.target).find('.msg').removeClass('success').addClass('error').html('Preencha todos os campos destacados');
+					},
+					highlight: function(element, errorClass) {
+						$(element).addClass('error');
+					},
+					unhighlight: function(element, errorClass) {
+						$(element).removeClass('error');
+					},
+					rules: {
+						name: {
+							required: true,
+							minlength: 2,
+							maxlength: 50
+						},
+						email: {
+							required: true,
+							email: true,
+							minlength: 2,
+							maxlength: 50
+						},
+						phone: {
+							required: true,
+							minlength: 17
+						},
+						company: {
+							required: true,
+							minlength: 2,
+							maxlength: 50
+						},
+					},
+					submitHandler: function(form){
+						$.post(
+							form.action,
+							$(form).serializeArray(),
+							function(data) {
+								obj = JSON.parse(data);
+								if(obj.success) {
+									$(form).find('.msg').removeClass('error').addClass('success').html('Contato enviado com sucesso');
+									$(form)[0].reset();
+									setTimeout(function(){
+										window.location.href = 'http://viaflow.com.br/solucoes/zillion/obrigado/';
+									},1000);
+								}
+							}
+							);
+					}
+				});
 
-				$('.form-phone').mask('(00) 000.00.00.00');
 
 
 			},
